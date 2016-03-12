@@ -58,7 +58,8 @@ public class HomeTask1 {
         double areaTriangle=0;
         if ((a >= 0) && (b >= 0)) {
             areaTriangle = ((a * b) / 2);
-        } return (areaTriangle);
+        }
+        return (areaTriangle);
     }
 
     /**
@@ -69,7 +70,9 @@ public class HomeTask1 {
      * @return сгенерированное число.
      */
     public static int generateNumberFromRange(int min, int max) {
-//        if ((min < 0) || (max < 0) || (max < min));
+        if ((min < 0) || (max < 0) || (max < min)){
+            return (0);
+        }
         int randomInterger;
         Random r = new Random();
         randomInterger = (r.nextInt(max) + min);
@@ -87,7 +90,6 @@ public class HomeTask1 {
     public static long calculateSum(long number) {
         long numberLocal = Math.abs(number);
         long sum = 0;
-
         while (numberLocal > 0) {
             sum += numberLocal % 10;
             numberLocal /= 10;
