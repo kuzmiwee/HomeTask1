@@ -55,11 +55,10 @@ public class HomeTask1 {
      * @return площадь треугольника.
      */
     public static double area(double a, double b) {
-        double areaTriangle;
-        if ((a <= 0) || (b <= 0)) {
+        double areaTriangle=0;
+        if ((a >= 0) && (b >= 0)) {
             areaTriangle = ((a * b) / 2);
-            return (areaTriangle);
-        } else return (0);
+        } return (areaTriangle);
     }
 
     /**
@@ -70,6 +69,7 @@ public class HomeTask1 {
      * @return сгенерированное число.
      */
     public static int generateNumberFromRange(int min, int max) {
+//        if ((min < 0) || (max < 0) || (max < min));
         int randomInterger;
         Random r = new Random();
         randomInterger = (r.nextInt(max) + min);
@@ -85,11 +85,12 @@ public class HomeTask1 {
      * @return сумма цифр.
      */
     public static long calculateSum(long number) {
-        long numberLocal = number;
+        long numberLocal = Math.abs(number);
         long sum = 0;
+
         while (numberLocal > 0) {
-            sum += number % 10;
-            numberLocal = numberLocal / 10;
+            sum += numberLocal % 10;
+            numberLocal /= 10;
         }
         return (sum);
     }
@@ -103,15 +104,18 @@ public class HomeTask1 {
      * @return элемент последовательности.
      */
     public static int fibonacci(int till) {
+        if (till < 0) {
+            return (1);
+        }
         int[] fibonacciArray = new int[till];
         int i = 2;
         fibonacciArray[0] = 1;
         fibonacciArray[1] = 1;
-        while (i < till) {
-            fibonacciArray[i] = fibonacciArray[i - 1] + fibonacciArray[i - 2];
-            i++;
-        }
-        return (fibonacciArray[till - 1]);
+            while (i < till) {
+                fibonacciArray[i] = fibonacciArray[i - 1] + fibonacciArray[i - 2];
+                i++;
+            }
+            return (fibonacciArray[till - 1]);
     }
 
     /**
